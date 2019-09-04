@@ -14,7 +14,7 @@ namespace UnionConditionLibrary
     public static class UnionCondition
     {
 
-        public static bool NeedExecute<T1, T2>(this IEnumerable<ConditionExpression<T1, T2>> expressions, T1 condition, T2 data)
+        public static bool NeedExecute<TCondition, TSource>(this IEnumerable<ConditionExpression<TCondition, TSource>> expressions, TCondition condition, TSource data)
         {         
 
             return expressions.All((y) => !y.Precondition(condition) ||  y.Postcondition(data));
