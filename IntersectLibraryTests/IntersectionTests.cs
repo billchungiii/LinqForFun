@@ -67,5 +67,22 @@ namespace IntersectLibrary.Tests
             var actual = FakeData.Create().Execute(Create(give), give).ToList();
             expected.ShouldEqual(actual);
         }
+
+        [TestMethod()]
+        public void Give_null_0_Female_When_Excute_Then_Mary_Jane_Winnie_Lucy_Nico()
+        {
+            var expected = new List<Person>
+            {
+                new Person ("Mary", 23, Gender.Female ),
+                 new Person ("Jane", 24, Gender.Female),
+                 new Person ("Winnie", 25, Gender.Female ),
+                 new Person ("Lucy", 26, Gender.Female ),
+                 new Person ("Nico", 23, Gender.Female),
+
+            }.ToExpectedObject();
+            var give = (default(string), 0, Gender.Female);
+            var actual = FakeData.Create().Execute(Create(give), give).ToList();
+            expected.ShouldEqual(actual);
+        }
     }
 }

@@ -41,7 +41,7 @@ namespace AggregateLibrary.Tests
 
 
         [TestMethod()]
-        public void Give_B_24_Male_When_Combine_Then_Bill()
+        public void Give_B_24_Male_When_AggregateExpression_Then_Bill()
         {
             var expected = new List<Person> { new Person("Bill", 23, Gender.Male) }.ToExpectedObject();
             var give = ("B", 24, Gender.Male);
@@ -52,7 +52,7 @@ namespace AggregateLibrary.Tests
         }
 
         [TestMethod()]
-        public void Give_i_27_Male_When_Combine_Then_Bill_David()
+        public void Give_i_27_Male_When_AggregateExpression_Then_Bill_David()
         {
             var expected = new List<Person>
             {
@@ -67,10 +67,29 @@ namespace AggregateLibrary.Tests
         }
 
         [TestMethod()]
-        public void Give_null_0_None_When_Excute_Then_SameAsSource()
+        public void Give_null_0_None_When_AggregateExpression_Then_SameAsSource()
         {
             var expected = FakeData.Create().ToExpectedObject();
             var give = (default(string), 0, Gender.None);
+            var execute = Create(give).AggregateExpression<(string name, int age, Gender gender), Person>(give);
+            var actual = FakeData.Create().Where(execute).ToList();
+            expected.ShouldEqual(actual);
+        }
+
+
+        [TestMethod ()]
+        public void Give_null_0_Female_When_AggregateExpression_Then_Mary_Jane_Winnie_Lucy_Nico()
+        {
+            var expected = new List<Person>
+            {
+                new Person ("Mary", 23, Gender.Female ),
+                 new Person ("Jane", 24, Gender.Female),
+                 new Person ("Winnie", 25, Gender.Female ),
+                 new Person ("Lucy", 26, Gender.Female ),
+                 new Person ("Nico", 23, Gender.Female),
+
+            }.ToExpectedObject();
+            var give = (default(string), 0, Gender.Female);
             var execute = Create(give).AggregateExpression<(string name, int age, Gender gender), Person>(give);
             var actual = FakeData.Create().Where(execute).ToList();
             expected.ShouldEqual(actual);

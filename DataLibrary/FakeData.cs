@@ -26,7 +26,7 @@ namespace DataLibrary
                 new Person ("Nico", 23, Gender.Female),
 
             };
-        }
+        }     
 
     }
 
