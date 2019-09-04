@@ -9,7 +9,7 @@ namespace UnionConditionLibrary
 {
 
     /// <summary>
-    /// 直覺法
+    /// 聯合條件直覺法
     /// </summary>
     public static class UnionCondition
     {
