@@ -22,8 +22,6 @@ namespace TemplateMethodLibrary.Tests
             var give = ("B", 24, Gender.Male);
             var actual = FakeData.Create().Execute(give).ToList();
             expected.ShouldEqual(actual);
-
-
         }
 
         [TestMethod()]

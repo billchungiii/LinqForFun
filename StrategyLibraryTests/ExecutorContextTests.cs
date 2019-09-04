@@ -22,8 +22,6 @@ namespace StrategyLibrary.Tests
             var give = ("B", 24, Gender.Male);
             var actual = FakeData.Create().Execute(give, new NameExecutor()).Execute(give, new AgeExecutor()).Execute(give, new GenderExecutor()).ToList();
             expected.ShouldEqual(actual);
-
-
         }
 
         [TestMethod()]
