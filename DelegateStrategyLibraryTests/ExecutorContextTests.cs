@@ -36,9 +36,9 @@ namespace DelegateStrategyLibrary.Tests
 
             var give = (name:"i", age:27, gender:Gender.Male);
             var actual = FakeData.Create().Execute((x) => !string.IsNullOrWhiteSpace(x.name), (x, y) => x.Name.Contains(y.name), give)
-                                           .Execute((x) => x.age > 0, (x, y) => x.Age < y.age, give)
-                                           .Execute((x) => x.gender != Gender.None, (x, y) => x.Gender == y.gender, give)
-                                           .ToList();
+                                          .Execute((x) => x.age > 0, (x, y) => x.Age < y.age, give)
+                                          .Execute((x) => x.gender != Gender.None, (x, y) => x.Gender == y.gender, give)
+                                          .ToList();
             expected.ShouldEqual(actual);
         }
 
