@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BaseLibrary;
 using ExpectedObjects;
+using DataLibrary;
 
 namespace UnionDelegateLibrary.Tests
 {
@@ -48,9 +49,9 @@ namespace UnionDelegateLibrary.Tests
             Func<Person, bool> execute = null;
             foreach (var expression in Create(give))
             {
-                if (expression.Source (give) )
+                if (expression.Precondition (give) )
                 {
-                    execute = execute.CombineExpression(expression.Target);
+                    execute = execute.CombineExpression(expression.Postcondition);
                 }
                 
             }
@@ -74,15 +75,34 @@ namespace UnionDelegateLibrary.Tests
             Func<Person, bool> execute = null;
             foreach (var expression in Create(give))
             {
-                if (expression.Source(give))
+                if (expression.Precondition(give))
                 {
-                    execute = execute.CombineExpression(expression.Target);
+                    execute = execute.CombineExpression(expression.Postcondition);
                 }
 
             }
 
             var actual = FakeData.Create().Where(execute).ToList();
             expected.ShouldEqual(actual); 
+        }
+
+
+        [TestMethod()]
+        public void Give_null_0_None_When_Excute_Then_SameAsSource()
+        {
+            var expected = FakeData.Create().ToExpectedObject();
+            var give = (default(string), 0, Gender.None);
+            Func<Person, bool> execute = null;
+            foreach (var expression in Create(give))
+            {
+                if (expression.Precondition(give))
+                {
+                    execute = execute.CombineExpression(expression.Postcondition);
+                }
+
+            }
+            var actual = FakeData.Create().Where(execute).ToList();
+            expected.ShouldEqual(actual);
         }
     }
 }

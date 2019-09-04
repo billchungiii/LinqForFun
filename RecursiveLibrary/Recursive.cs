@@ -12,15 +12,23 @@ namespace RecursiveLibrary
     /// </summary>
     public static class Recursive
     {
-        public static IEnumerable<T2> Execute<T1, T2>(this IEnumerable<T2> source, List<ConditionExpression<T1, T2>> expressions, T1 condition )
+        public static IEnumerable<T2> Execute<T1, T2>(this IEnumerable<T2> source, List<ConditionExpression<T1, T2>> expressions, T1 condition)
         {
-            if (expressions.Count > 0 )
-            {
-                if (expressions[0].Source(condition))
-                {
-                    source = source.Where(expressions[0].Target);
-                }
+            //if (expressions.Count > 0)
+            //{
+            //    if (expressions[0].Precondition(condition))
+            //    {
+            //        source = source.Where(expressions[0].Postcondition);
+            //    }
 
+            //    expressions.RemoveAt(0);
+            //    return source.Execute(expressions, condition);
+            //}
+            //return source;
+
+            if (expressions.Count > 0)
+            {
+                source = !expressions[0].Precondition(condition) ? source : source.Where(expressions[0].Postcondition);
                 expressions.RemoveAt(0);
                 return source.Execute(expressions, condition);
             }

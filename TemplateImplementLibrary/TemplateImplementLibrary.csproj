@@ -4,11 +4,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{C847ED97-F286-452C-86B0-09BA267B2F20}</ProjectGuid>
+    <ProjectGuid>{B82A6458-F884-4130-AD2B-3CFB513E9371}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>AggregateLibrary</RootNamespace>
-    <AssemblyName>AggregateLibrary</AssemblyName>
+    <RootNamespace>TemplateImplementLibrary</RootNamespace>
+    <AssemblyName>TemplateImplementLibrary</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <Deterministic>true</Deterministic>
@@ -41,13 +41,17 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="AggregateExtension.cs" />
+    <Compile Include="ExcutorContext.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BaseLibrary\BaseLibrary.csproj">
-      <Project>{bc55db09-0278-46af-afca-a49af67e5c25}</Project>
-      <Name>BaseLibrary</Name>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{B3588B47-92E6-4C49-BC39-E4E4D7F284DD}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemplateMethodLibrary\TemplateMethodLibrary.csproj">
+      <Project>{FEBE8F81-B8A3-4012-82F9-E3025C803B35}</Project>
+      <Name>TemplateMethodLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />

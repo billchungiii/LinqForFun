@@ -20,7 +20,7 @@ namespace IntersectLibrary
         private static IEnumerable<IEnumerable<T2>> InnerExecute<T1, T2>(this IEnumerable<T2> source, IEnumerable<ConditionExpression<T1, T2>> expressions, T1 condition)
         {
 
-          return   expressions.Where((x) => x.Source(condition)).Select((y) => source.Where (y.Target));
+          return   expressions.Where((x) => x.Precondition(condition)).Select((y) => source.Where (y.Postcondition));
             
         }
     }

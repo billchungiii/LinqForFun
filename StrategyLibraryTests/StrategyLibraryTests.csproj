@@ -3,11 +3,11 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{414E39CF-4516-4D4A-9C09-9641EFE84D68}</ProjectGuid>
+    <ProjectGuid>{B7034D3E-6F49-4513-8C10-6AD642729E2D}</ProjectGuid>
     <OutputType>Library</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>IntersectLibraryTests</RootNamespace>
-    <AssemblyName>IntersectLibraryTests</AssemblyName>
+    <RootNamespace>StrategyLibraryTests</RootNamespace>
+    <AssemblyName>StrategyLibraryTests</AssemblyName>
     <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
     <ProjectTypeGuids>{3AC096D0-A1C2-E12C-1390-A8335801FDAB};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
@@ -54,21 +54,21 @@
     </Otherwise>
   </Choose>
   <ItemGroup>
-    <Compile Include="IntersectionTests.cs" />
+    <Compile Include="ExecutorContextTests.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\BaseLibrary\BaseLibrary.csproj">
-      <Project>{bc55db09-0278-46af-afca-a49af67e5c25}</Project>
-      <Name>BaseLibrary</Name>
-    </ProjectReference>
     <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
       <Project>{B3588B47-92E6-4C49-BC39-E4E4D7F284DD}</Project>
       <Name>DataLibrary</Name>
     </ProjectReference>
-    <ProjectReference Include="..\IntersectLibrary\IntersectLibrary.csproj">
-      <Project>{CB25F6C7-EDE0-4B90-A75C-6DB010693B3E}</Project>
-      <Name>IntersectLibrary</Name>
+    <ProjectReference Include="..\StrategyImplementLibrary\StrategyImplementLibrary.csproj">
+      <Project>{cca4dbaa-63f4-403b-8989-0e3094fc8304}</Project>
+      <Name>StrategyImplementLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\StrategyLibrary\StrategyLibrary.csproj">
+      <Project>{9631F982-713A-4509-ABF2-C7D05ABA8D50}</Project>
+      <Name>StrategyLibrary</Name>
     </ProjectReference>
   </ItemGroup>
   <ItemGroup>

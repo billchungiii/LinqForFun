@@ -15,7 +15,7 @@ namespace AggregateLibrary
 
         public static Func<T2, bool> AggregateExpression<T1, T2>(this IEnumerable<ConditionExpression<T1, T2>> expressions, T1 condition)
         {
-            return expressions.Where((x) => x.Source(condition)).Select((y) => y.Target).Aggregate((x, y) => (z => x(z) && y(z)));
+            return expressions.Where((x) => x.Precondition(condition)).Select((y) => y.Postcondition).Aggregate((x, y) => (z => x(z) && y(z)));
         }
     }
 }

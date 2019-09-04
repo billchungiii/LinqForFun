@@ -1,18 +1,18 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using TemplateMethodLibrary;
+﻿using DataLibrary;
+using ExpectedObjects;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+using StrategyImplementLibrary;
+using StrategyLibrary;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-using BaseLibrary;
-using ExpectedObjects;
-using DataLibrary;
-using TemplateImplementLibrary;
 
-namespace TemplateMethodLibrary.Tests
+namespace StrategyLibrary.Tests
 {
     [TestClass()]
+
     public class ExcutorContextTests
     {
         [TestMethod()]
@@ -20,7 +20,7 @@ namespace TemplateMethodLibrary.Tests
         {
             var expected = new List<Person> { new Person("Bill", 23, Gender.Male) }.ToExpectedObject();
             var give = ("B", 24, Gender.Male);
-            var actual = FakeData.Create().Execute(give).ToList();
+            var actual = FakeData.Create().Execute(give, new NameExecutor()).Execute(give, new AgeExecutor()).Execute(give, new GenderExecutor()).ToList();
             expected.ShouldEqual(actual);
 
 
@@ -35,7 +35,7 @@ namespace TemplateMethodLibrary.Tests
                 new Person ("David", 26, Gender.Male)
             }.ToExpectedObject();
             var give = ("i", 27, Gender.Male);
-            var actual = FakeData.Create().Execute(give).ToList();
+            var actual = FakeData.Create().Execute(give, new NameExecutor()).Execute(give, new AgeExecutor()).Execute(give, new GenderExecutor()).ToList();
             expected.ShouldEqual(actual);
         }
 
@@ -44,7 +44,7 @@ namespace TemplateMethodLibrary.Tests
         {
             var expected = FakeData.Create().ToExpectedObject();
             var give = (default(string), 0, Gender.None);
-            var actual = FakeData.Create().Execute(give).ToList();
+            var actual = FakeData.Create().Execute(give, new NameExecutor()).Execute(give, new AgeExecutor()).Execute(give, new GenderExecutor()).ToList();
             expected.ShouldEqual(actual);
         }
     }

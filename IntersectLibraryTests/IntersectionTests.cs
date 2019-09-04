@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BaseLibrary;
 using ExpectedObjects;
+using DataLibrary;
 
 namespace IntersectLibrary.Tests
 {
@@ -54,6 +55,15 @@ namespace IntersectLibrary.Tests
                 new Person ("David", 26, Gender.Male)
             }.ToExpectedObject();
             var give = ("i", 27, Gender.Male);
+            var actual = FakeData.Create().Execute(Create(give), give).ToList();
+            expected.ShouldEqual(actual);
+        }
+
+        [TestMethod()]
+        public void Give_null_0_None_When_Excute_Then_SameAsSource()
+        {
+            var expected = FakeData.Create().ToExpectedObject();
+            var give = (default(string), 0, Gender.None);
             var actual = FakeData.Create().Execute(Create(give), give).ToList();
             expected.ShouldEqual(actual);
         }

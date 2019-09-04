@@ -1,4 +1,5 @@
 ﻿using BaseLibrary;
+using DataLibrary;
 using ExpectedObjects;
 using Microsoft.VisualStudio.TestTools.UnitTesting;
 using RecursiveLibrary;
@@ -18,9 +19,7 @@ namespace RecursiveLibrary.Tests
         {
 
             return new List<ConditionExpression<(string name, int age, Gender gender), Person>>
-            {
-                 new ConditionExpression<(string name, int age, Gender gender), Person>((x) => true,
-                                                                              (y) => true),
+            {               
 
                  new ConditionExpression<(string name, int age, Gender gender), Person>((x) => !string.IsNullOrWhiteSpace (condition.name),
                                                                               (y) => y.Name.Contains (condition.name )),
@@ -56,6 +55,15 @@ namespace RecursiveLibrary.Tests
                 new Person ("David", 26, Gender.Male)
             }.ToExpectedObject();
             var give = ("i", 27, Gender.Male);
+            var actual = FakeData.Create().Execute(Create(give), give).ToList();
+            expected.ShouldEqual(actual);
+        }
+
+        [TestMethod()]
+        public void Give_null_0_None_When_Excute_Then_SameAsSource()
+        {
+            var expected = FakeData.Create().ToExpectedObject();
+            var give = (default(string), 0, Gender.None);
             var actual = FakeData.Create().Execute(Create(give), give).ToList();
             expected.ShouldEqual(actual);
         }

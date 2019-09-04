@@ -11,24 +11,24 @@ namespace UnionDelegateLibrary
     /// </summary>
     public static class UnionDelegateExtension
     {
-        public static Func<T, bool> CombineExpression<T>(this Func<T, bool> source, Func<T, bool> target)
+        public static Func<T, bool> CombineExpression<T>(this Func<T, bool> precondition, Func<T, bool> postcondition)
         {
-            if (source == null && target == null )
+            if (precondition == null && postcondition == null )
             {
                 throw new ArgumentNullException();
             }
 
-            if (source == null && target != null)
+            if (precondition == null && postcondition != null)
             {
-                return target;
+                return postcondition;
             }
 
-            if (source != null && target == null)
+            if (precondition != null && postcondition == null)
             {
-                return source;
+                return precondition;
             }
 
-            return (x) => source(x) && target(x);
+            return (x) => precondition(x) && postcondition(x);
         }
     }
 }

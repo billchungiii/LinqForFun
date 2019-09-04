@@ -62,6 +62,14 @@
       <Project>{bc55db09-0278-46af-afca-a49af67e5c25}</Project>
       <Name>BaseLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{B3588B47-92E6-4C49-BC39-E4E4D7F284DD}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\TemplateImplementLibrary\TemplateImplementLibrary.csproj">
+      <Project>{b82a6458-f884-4130-ad2b-3cfb513e9371}</Project>
+      <Name>TemplateImplementLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\TemplateMethodLibrary\TemplateMethodLibrary.csproj">
       <Project>{FEBE8F81-B8A3-4012-82F9-E3025C803B35}</Project>
       <Name>TemplateMethodLibrary</Name>

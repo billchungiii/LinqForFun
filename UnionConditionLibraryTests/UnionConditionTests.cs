@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BaseLibrary;
 using ExpectedObjects;
+using DataLibrary;
 
 namespace UnionConditionLibrary.Tests
 {
@@ -57,6 +58,15 @@ namespace UnionConditionLibrary.Tests
             }.ToExpectedObject();
             var give = ("i", 27, Gender.Male);
             var actual = FakeData.Create().Where((x) => Create(give).NeedExecute (give, x)).ToList();
+            expected.ShouldEqual(actual);
+        }
+
+        [TestMethod()]
+        public void Give_null_0_None_When_Excute_Then_SameAsSource()
+        {
+            var expected = FakeData.Create().ToExpectedObject();
+            var give = (default(string), 0, Gender.None);
+            var actual = FakeData.Create().Where((x) => Create(give).NeedExecute(give, x)).ToList();
             expected.ShouldEqual(actual);
         }
     }

@@ -62,6 +62,10 @@
       <Project>{bc55db09-0278-46af-afca-a49af67e5c25}</Project>
       <Name>BaseLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{B3588B47-92E6-4C49-BC39-E4E4D7F284DD}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\RecursiveLibrary\RecursiveLibrary.csproj">
       <Project>{6803A324-1727-44CE-874D-36E530E64235}</Project>
       <Name>RecursiveLibrary</Name>

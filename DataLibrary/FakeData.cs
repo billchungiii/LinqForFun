@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace BaseLibrary
+namespace DataLibrary
 {
     public static class FakeData
     {
@@ -29,4 +29,6 @@ namespace BaseLibrary
         }
 
     }
+
+
 }

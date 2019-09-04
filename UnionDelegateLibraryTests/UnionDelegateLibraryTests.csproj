@@ -62,6 +62,10 @@
       <Project>{bc55db09-0278-46af-afca-a49af67e5c25}</Project>
       <Name>BaseLibrary</Name>
     </ProjectReference>
+    <ProjectReference Include="..\DataLibrary\DataLibrary.csproj">
+      <Project>{B3588B47-92E6-4C49-BC39-E4E4D7F284DD}</Project>
+      <Name>DataLibrary</Name>
+    </ProjectReference>
     <ProjectReference Include="..\UnionDelegateLibrary\UnionDelegateLibrary.csproj">
       <Project>{82DBF022-D5C8-489A-868F-B0C91B00CB7D}</Project>
       <Name>UnionDelegateLibrary</Name>

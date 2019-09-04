@@ -7,6 +7,7 @@ using System.Text;
 using System.Threading.Tasks;
 using BaseLibrary;
 using ExpectedObjects;
+using DataLibrary;
 
 namespace AggregateLibrary.Tests
 {
@@ -60,6 +61,16 @@ namespace AggregateLibrary.Tests
             }.ToExpectedObject();
 
             var give = ("i", 27, Gender.Male);
+            var execute = Create(give).AggregateExpression<(string name, int age, Gender gender), Person>(give);
+            var actual = FakeData.Create().Where(execute).ToList();
+            expected.ShouldEqual(actual);
+        }
+
+        [TestMethod()]
+        public void Give_null_0_None_When_Excute_Then_SameAsSource()
+        {
+            var expected = FakeData.Create().ToExpectedObject();
+            var give = (default(string), 0, Gender.None);
             var execute = Create(give).AggregateExpression<(string name, int age, Gender gender), Person>(give);
             var actual = FakeData.Create().Where(execute).ToList();
             expected.ShouldEqual(actual);

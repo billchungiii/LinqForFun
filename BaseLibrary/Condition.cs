@@ -13,14 +13,14 @@ namespace BaseLibrary
     /// <typeparam name="T2"></typeparam>
     public  class ConditionExpression<T1, T2>
     {
-        public Func<T1, bool> Source { get; }
+        public Func<T1, bool> Precondition { get; }
 
-        public Func<T2, bool> Target { get; }
+        public Func<T2, bool> Postcondition { get; }
 
-        public ConditionExpression (Func<T1, bool> source, Func<T2, bool> target)
+        public ConditionExpression (Func<T1, bool> precondition, Func<T2, bool> postcondition)
         {
-            Source = source;
-            Target = target;
+            Precondition = precondition;
+            Postcondition = postcondition;
         }
        
     }
