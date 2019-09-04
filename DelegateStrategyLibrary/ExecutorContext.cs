@@ -4,6 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+/// <summary>
+/// 委派策略模式
+/// </summary>
 namespace DelegateStrategyLibrary
 {
     public static class ExecutorContext

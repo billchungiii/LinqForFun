@@ -4,6 +4,10 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/// <summary>
+/// 範本方法模式
+/// </summary>
 namespace TemplateMethodLibrary
 {
     public abstract class ExecutorTemplate<TSource, TCondition>

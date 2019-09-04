@@ -4,8 +4,13 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
+
+/// <summary>
+/// 策略模式
+/// </summary>
 namespace StrategyLibrary
 {
+   
     public static class ExecutorContext
     {
         public static IEnumerable<TSource> Execute<TSource, TCondition>(this IEnumerable<TSource> source, TCondition condition, IExecutor<TSource, TCondition> executor)
